@@ -130,3 +130,12 @@ bool Venta::modificarEnDisco(int pos)
     fclose(pFile);
     return true;
 }
+
+void Venta::toString()
+{
+    std::cout << "ID: " << _id << std::endl;
+    std::cout << "ID Cliente: " << _idCliente << std::endl;
+    std::cout << "ID Vendedor: " << _idVendedor << std::endl;
+    std::cout << "Fecha: "; _fecha.MostrarFecha();
+    std::cout << "Envio: " << _envio << std::endl;
+}

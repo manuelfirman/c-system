@@ -1,6 +1,7 @@
 #include "Menu.h"
 #include <iostream>
 #include <limits>
+#include "detalleventa.h"
 
 Menu::Menu()
 {
@@ -23,10 +24,12 @@ void Menu::iniciar()
         std::cout << "=====================================================" << std::endl;
         std::cout << std::string(20, ' ') << "MENU" << std::endl;
         std::cout << "=====================================================" << std::endl;
-        std::cout << "1. ADMINISTRAR LIBROS" << std::endl;
-        std::cout << "2. ADMINISTRAR VENDEDORES" << std::endl;
-        std::cout << "3. ADMINISTRAR CLIENTES" << std::endl;
-        std::cout << "4. ADMINISTRAR VENTAS" << std::endl;
+        std::cout << "1. COMPRAR LIBROS" << std::endl;
+        std::cout << std::endl << std::endl;
+        std::cout << "2. ADMINISTRAR LIBROS" << std::endl;
+        std::cout << "3. ADMINISTRAR VENDEDORES" << std::endl;
+        std::cout << "4. ADMINISTRAR CLIENTES" << std::endl;
+        std::cout << "5. ADMINISTRAR VENTAS" << std::endl;
         std::cout << std::endl << std::endl;
 
 
@@ -36,15 +39,18 @@ void Menu::iniciar()
         system("cls");
         switch(opt){
             case 1:
-                administrarLibros();
+                menuCompra();
                 break;
             case 2:
-                administrarVendedores();
+                administrarLibros();
                 break;
             case 3:
-                administrarClientes();
+                administrarVendedores();
                 break;
             case 4:
+                administrarClientes();
+                break;
+            case 5:
                 administrarVentas();
                 break;
 
@@ -90,13 +96,13 @@ void Menu::administrarLibros()
         system("cls");
         switch(opt){
             case 1:
-                // llamar funcion para listar todos los libros
+                mgLibros.listarLibros();
                 break;
             case 2:
                 menuFiltrarLibros();
                 break;
             case 3:
-                // llamar funcion para cargar un libro
+                mgLibros.registrarLibro();
                 break;
             case 8:
                 volver = true;
@@ -263,7 +269,6 @@ void Menu::administrarVentas()
         std::cout << "=====================================================" << std::endl;
         std::cout << "1. LISTAR" << std::endl;
         std::cout << "2. FILTRAR" << std::endl;
-        std::cout << "3. REGISTRAR NUEVA VENTA" << std::endl;
         std::cout << std::endl << std::endl;
 
         std::cout << "8. VOLVER" << std::endl;
@@ -273,13 +278,10 @@ void Menu::administrarVentas()
         system("cls");
         switch(opt){
             case 1:
-                // llamar funcion para listar todas las ventas
+                mgVentas.listarDetalleVentas();
                 break;
             case 2:
                 menuFiltrarVentas();
-                break;
-            case 3:
-                // llamar funcion para registrar una nueva venta
                 break;
             case 8:
                 volver = true;
@@ -425,8 +427,9 @@ void Menu::menuFiltrarClientes(){
     do {
         system("cls");
         std::cout << "================== FILTRAR CLIENTES ===================" << std::endl;
-        std::cout << "1. POR DNI" << std::endl;
-        std::cout << "2. POR RANGO DE EDAD" << std::endl;
+        std::cout << "1. POR RANGO DE EDAD" << std::endl;
+        std::cout << "2. POR GENERO FAVORITO" << std::endl;
+
         std::cout << std::endl << std::endl;
 
         std::cout << "8. VOLVER" << std::endl;
@@ -436,13 +439,6 @@ void Menu::menuFiltrarClientes(){
         system("cls");
         switch(opt){
             case 1:
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cout << "\nIngrese el DNI del CLIENTE: ";
-                getline(std::cin, dniCliente);
-                // llamar funcion que busca por DNI pasando `dniCliente`
-                //managerClientes.buscarDNI(dniCliente);
-                break;
-            case 2:
                 while(!volver2){
                     system("cls");
                     std::cout << "================== RANGO DE EDAD ===================" << std::endl;
@@ -451,6 +447,56 @@ void Menu::menuFiltrarClientes(){
                     std::cout << "3. 20 - 30" << std::endl;
                     std::cout << "4. 30 - 45" << std::endl;
                     std::cout << "5. 45+" << std::endl;
+                    std::cout << std::endl << std::endl;
+
+                    std::cout << "8. VOLVER" << std::endl;
+                    std::cout << "9. SALIR" << std::endl;
+                    std::cout << "\nOpcion: ";
+                    std::cin >> opt2;
+                    switch(opt2){
+                        case 1:
+                            // llamar funcion pasando como parametro (10, 15)
+                            break;
+                        case 2:
+                            // llamar funcion pasando como parametro (15, 20)
+                            break;
+                        case 3:
+                            // llamar funcion pasando como parametro (20, 30)
+                            break;
+                        case 4:
+                            // llamar funcion pasando como parametro (30, 45)
+                            break;
+                        case 5:
+                            // llamar funcion pasando como parametro (45, 100)
+                            break;
+                        case 8:
+                            volver2 = true;
+                            break;
+                        case 9:
+                            salir = true;
+                            std::cout << "Saliendo..." << std::endl;
+                            break;
+                        default:
+                            std::cout << "Opcion invalida" << std::endl;
+                            system("pause");
+                            break;
+                    }
+
+                    if(salir){
+                        exit(1);
+                    }
+                }
+                volver2 = false;
+                break;
+            case 2:
+                while(!volver2){
+                    system("cls");
+                    std::cout << "================== RANGO DE EDAD ===================" << std::endl;
+                    std::cout << "1. Terror" << std::endl;
+                    std::cout << "2. Ciencia Ficcion" << std::endl;
+                    std::cout << "3. Comedia" << std::endl;
+                    std::cout << "4. Anime" << std::endl;
+                    std::cout << "5. Drama" << std::endl;
                     std::cout << std::endl << std::endl;
 
                     std::cout << "8. VOLVER" << std::endl;
@@ -574,3 +620,162 @@ void Menu::menuFiltrarVentas(){
         }
     } while(!volver);
 }
+
+void Menu::menuCompra()
+{
+    bool salir = false;
+    int opt;
+
+    do {
+        int id;
+        int indice;
+        Libro libro;
+        bool salir2 = false;
+        int opt2;
+        int idCliente;
+        int idVendedor;
+
+        system("cls");
+        std::cout << "=====================================================" << std::endl;
+        std::cout << std::string(20, ' ') << "MENU COMPRA" << std::endl;
+        std::cout << "=====================================================" << std::endl;
+
+        mgLibros.listarLibrosVenta();
+
+        std::cout << std::endl << std::endl;
+        std::cout << "1. AGREGAR LIBRO" << std::endl;
+        std::cout << "2. VER CARRITO" << std::endl;
+        std::cout << "3. QUITAR LIBRO" << std::endl;
+        std::cout << "4. FINALIZAR COMPRA" << std::endl;
+        std::cout << std::endl;
+        std::cout << "9. SALIR" << std::endl;
+        std::cout << "Opcion: ";
+        std::cin >> opt;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        switch(opt){
+            case 1:
+                std::cout << "Ingrese ID del libro a agregar:";
+                std::cin >> id;
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                libro = mgLibros.getLibro(id);
+                if(libro.getId() == -1){
+                    std::cout << "Error: ID Incorrecto. Intente con uno de los Id's listados" << std::endl;
+                    system("pause");
+                    break;
+                }
+                std::cout << libro.getTitulo();
+                carrito.agregarLibro(libro);
+                std::cout << "Libro agregado" << std::endl;
+                system("pause");
+                break;
+            case 2:
+                system("cls");
+                carrito.listarItems();
+                system("pause");
+                break;
+            case 3:
+                while(!salir2){
+                    system("cls");
+
+                    carrito.listarItems();
+                    std::cout << std::endl << std::endl;
+                    std::cout << "1. ELIMINAR LIBRO" << std::endl;
+                    std::cout << "9. VOLVER" << std::endl;
+                    std::cout << std::endl;
+
+                    std::cout << "Opcion: ";                    std::cin >> opt2;
+                    switch(opt2){
+                        case 1:
+                            std::cout << "Ingrese el N de item a eliminar: ";
+                            std::cin >> indice;
+                            if(carrito.eliminarLibro(indice)) std::cout << "Libro eliminado del carrito" << std::endl;
+                            else std::cout << "Error. Indice incorrecto." << std::endl;
+                            system("pause");
+                            break;
+                        case 9:
+                            salir2 = true;
+                            break;
+                        default:
+                            std::cout << "Opcion invalida" << std::endl;
+                            system("pause");
+                            break;
+                    }
+                }
+                break;
+            case 4:
+                system("cls");
+                std::cout << "Ingrese ID Vendedor: ";
+                std::cin >> idVendedor;
+                while(!mgVendedores.buscarId(idVendedor)){
+                    std::cout << "ID Invalido" << std::endl;
+                    std::cout << "Ingrese ID Vendedor: ";
+                    std::cin >> idVendedor;
+                }
+
+                std::cout << "Ingrese ID Cliente: ";
+                std::cin >> idCliente;
+                while(!mgClientes.buscarId(idCliente)){
+                    std::cout << "ID Invalido" << std::endl;
+                    std::cout << "Ingrese ID Cliente: ";
+                    std::cin >> idCliente;
+                }
+
+                finalizarCompra(idCliente, idVendedor);
+                break;
+            case 9:
+                salir = true;
+                std::cout << "Saliendo..." << std::endl;
+                break;
+            default:
+                std::cout << "Opcion invalida" << std::endl;
+                system("pause");
+                break;
+        }
+
+
+    } while(!salir);
+
+    system("pause");
+}
+
+
+void Menu::finalizarCompra(int idCliente, int idVendedor)
+{
+    float total;
+    std::cout << "=====================================================" << std::endl;
+    std::cout << std::string(20, ' ') << "INFORME DE VENTA" << std::endl;
+    std::cout << "=====================================================" << std::endl;
+
+    std::cout << "ID\tTITULO\t\t\tSTOCK\t\tPRECIO" << std::endl;
+    for(int i=0; i < carrito.obtenerCantidad(); i++){
+        Libro libro = carrito.obtenerLibro(i);
+        libro.toString();
+        total += libro.getPrecio();
+    }
+    Vendedor vendedor = mgVendedores.obtenerVendedor(idVendedor);
+    Cliente cliente = mgClientes.obtenerCliente(idCliente);
+    Libro libro = carrito.obtenerLibro(0);
+
+    std::cout << std::endl << std::endl;
+    std::cout << "VENDEDOR: " << vendedor.getNombres() << std::endl;
+    std::cout << "CLIENTE: " << cliente.getNombres() << std::endl;
+    std::cout << "TOTAL: $" << total << std::endl;
+
+    DetalleVenta detalleVenta;
+
+    detalleVenta.setIdLibro(libro.getId());
+    detalleVenta.setTituloLibro(libro.getTitulo());
+    detalleVenta.setNombreCliente(cliente.getNombres());
+    detalleVenta.setNombreVendedor(vendedor.getNombres());
+    detalleVenta.setPrecioTotal(total);
+
+    if(!detalleVenta.grabarEnDisco()) std::cout << "Error. No se pudo generar la compra." << std::endl;
+
+    std::cout << "COMPRA REALIZADA" << std::endl;
+    std::cout << "INFORME GUARDADO" << std::endl;
+    mgVentas.agregarVenta(detalleVenta);
+    carrito.resetCarrito();
+    system("pause");
+}
+

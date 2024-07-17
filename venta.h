@@ -37,6 +37,7 @@ class Venta
         bool leerDeDisco(int pos);
         bool modificarEnDisco(int pos);
 
+        void toString();
 };
 
 #endif // VENTA_H

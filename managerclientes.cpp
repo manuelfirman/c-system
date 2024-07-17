@@ -77,10 +77,10 @@ void ManagerClientes::registrarCliente() {
     std::cin.getline(domicilio, 50);
 
     std::cout << "Ingrese telefono: ";
-    std::cin.getline(telefono, 50);
+    std::cin.getline(telefono, 15);
 
     std::cout << "Ingrese mail: ";
-    std::cin.getline(mail, 50);
+    std::cin.getline(mail, 100);
 
     std::cout << "Ingrese numero de genero favorito: ";
     std::cout << "1. Terror\n2.Ciencia Ficcion\n3.Comedia\n4.Anime\n5.Drama" << std::endl;
@@ -166,4 +166,18 @@ bool ManagerClientes::buscarId(int id)
         pos++;
     }
     return false;
+}
+
+Cliente ManagerClientes::obtenerCliente(int id)
+{
+    Cliente cliente;
+    Cliente aux;
+    int pos = 0;
+    while(aux.leerDeDisco(pos)){
+        if(aux.getId() == id){
+            return aux;
+        }
+        pos++;
+    }
+    return cliente;
 }

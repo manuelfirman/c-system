@@ -157,3 +157,17 @@ bool ManagerVendedores::buscarId(int id)
     }
     return false;
 }
+
+Vendedor ManagerVendedores::obtenerVendedor(int id)
+{
+    Vendedor vendedor;
+    Vendedor aux;
+    int pos = 0;
+    while(aux.leerDeDisco(pos)){
+        if(aux.getId() == id){
+            return aux;
+        }
+        pos++;
+    }
+    return vendedor;
+}
