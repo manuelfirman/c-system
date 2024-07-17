@@ -1,0 +1,69 @@
+# depslib dependency file v1.0
+1721173634 source:c:\users\bezpa\desktop\asd\tpvegui\main.cpp
+	<iostream>
+	"menu.h"
+
+1721237603 source:c:\users\bezpa\desktop\asd\tpvegui\menu.cpp
+	"Menu.h"
+	<iostream>
+	<limits>
+
+1721237479 c:\users\bezpa\desktop\asd\tpvegui\menu.h
+	"managervendedores.h"
+	"managerclientes.h"
+
+1721237895 source:c:\users\bezpa\desktop\asd\tpvegui\managervendedores.cpp
+	"managervendedores.h"
+	"vendedor.h"
+	<limits>
+
+1721235068 c:\users\bezpa\desktop\asd\tpvegui\managervendedores.h
+	"fecha.h"
+	"vendedor.h"
+
+1721227374 c:\users\bezpa\desktop\asd\tpvegui\fecha.h
+	<iostream>
+
+1721227511 source:c:\users\bezpa\desktop\asd\tpvegui\fecha.cpp
+	"fecha.h"
+	<iostream>
+	<string.h>
+	<time.h>
+
+1721240140 source:c:\users\bezpa\desktop\asd\tpvegui\vendedor.cpp
+	"vendedor.h"
+	"fecha.h"
+
+1721235596 c:\users\bezpa\desktop\asd\tpvegui\vendedor.h
+	"persona.h"
+	"fecha.h"
+
+1721228868 c:\users\bezpa\desktop\asd\tpvegui\persona.h
+	"fecha.h"
+
+1721230413 source:c:\users\bezpa\desktop\asd\tpvegui\persona.cpp
+	"persona.h"
+	<string.h>
+
+1721238998 source:c:\users\bezpa\desktop\asd\tpvegui\managerclientes.cpp
+	"managerclientes.h"
+	"cliente.h"
+	<limits>
+
+1721237400 c:\users\bezpa\desktop\asd\tpvegui\managerclientes.h
+	"cliente.h"
+
+1721240121 source:c:\users\bezpa\desktop\asd\tpvegui\cliente.cpp
+	"cliente.h"
+	"string.h"
+
+1721235412 c:\users\bezpa\desktop\asd\tpvegui\cliente.h
+	"persona.h"
+
+1721240988 source:c:\users\bezpa\desktop\asd\tpvegui\venta.cpp
+	"venta.h"
+	<string.h>
+
+1721240304 c:\users\bezpa\desktop\asd\tpvegui\venta.h
+	"fecha.h"
+
