@@ -23,6 +23,9 @@ class ManagerVentas
         void registrarVenta();
         void agregarVenta(const DetalleVenta& venta);
         void setEstadoVenta(int id, bool estado);
+        void filtrarPorLibro(const char* titulo);
+        void filtrarPorCliente(const char* nombre);
+        void filtrarPorVendedor(const char* nombre);
 };
 
 #endif // MANAGERVENTAS_H

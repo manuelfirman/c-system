@@ -1,6 +1,7 @@
 #include "managerlibros.h"
 #include "libro.h"
 #include <limits>
+#include <string.h>
 
 ManagerLibros::ManagerLibros() : libros(nullptr), cantidad(0), capacidad(10)
 {
@@ -106,13 +107,17 @@ void ManagerLibros::listarLibros() {
     char opcion;
     std::cin >> opcion;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+
+    std::cout << "============= LISTADO DE LIBROS =============" << std::endl << std::endl;
+
+    std::cout << "ID\tSTOCK\tGENERO\tPRECIO\tTITULO\t\t\tPUBLICACION" << std::endl;
     for (int i = 0; i < cantidad; ++i) {
          if (opcion == '1' && !libros[i].getEstado()) {
             continue;
         }
-        std::cout << "--------------------------------------" << std::endl;
-        libros[i].toString();
-        std::cout << "--------------------------------------" << std::endl << std::endl;
+        std::cout << "------------------------------------------------------------" << std::endl;
+        libros[i].toStringExtendido();
     }
 
     system("pause");
@@ -120,7 +125,7 @@ void ManagerLibros::listarLibros() {
 
 void ManagerLibros::listarLibrosVenta() {
 
-    std::cout << "ID\tTITULO\tN GENERO\tSTOCK\tPRECIO" << std::endl;
+    std::cout << "ID\tSTOCK\tPRECIO\tTITULO" << std::endl;
     for (int i = 0; i < cantidad; ++i) {
          if (!libros[i].getEstado()) {
             continue;
@@ -189,4 +194,58 @@ Libro ManagerLibros::getLibro(int id)
     }
 
     return libro;
+}
+
+void ManagerLibros::filtrarPorPrecio(int precioMin, int precioMax)
+{
+    Libro libro;
+    int pos = 0;
+    bool encontrado = false;
+    std::cout << "ID\tSTOCK\tGENERO\tPRECIO\tTITULO\t\t\tPUBLICACION" << std::endl;
+    while(libro.leerDeDisco(pos)){
+        if(libro.getPrecio() >= precioMin && libro.getPrecio() < precioMax){
+            encontrado = true;
+            libro.toStringExtendido();
+            std::cout << "------------------------------------------------------------" << std::endl;
+        }
+        pos++;
+    }
+    if(!encontrado) std::cout << "No se encontraron libros con ese precio: " << precioMin << "-" << precioMax << std::endl;
+    system("pause");
+}
+
+void ManagerLibros::filtrarPorNombre(const char* nombre)
+{
+    Libro libro;
+    int pos = 0;
+    bool encontrado = false;
+    std::cout << "ID\tSTOCK\tGENERO\tPRECIO\tTITULO\t\t\tPUBLICACION" << std::endl;
+    while(libro.leerDeDisco(pos)){
+        if(strcmp(libro.getTitulo(), nombre) == 0){
+            encontrado = true;
+            libro.toStringExtendido();
+            std::cout << "------------------------------------------------------------" << std::endl;
+        }
+        pos++;
+    }
+    if(!encontrado) std::cout << "No se encontraron libros con ese nombre: " << nombre << std::endl;
+    system("pause");
+}
+
+void ManagerLibros::filtrarPorGenero(int idGenero)
+{
+    Libro libro;
+    int pos = 0;
+    bool encontrado = false;
+    std::cout << "ID\tSTOCK\tGENERO\tPRECIO\tTITULO\t\t\tPUBLICACION" << std::endl;
+    while(libro.leerDeDisco(pos)){
+        if(libro.getIdGenero() == idGenero){
+            encontrado = true;
+            libro.toStringExtendido();
+            std::cout << "------------------------------------------------------------" << std::endl;
+        }
+        pos++;
+    }
+    if(!encontrado) std::cout << "No se encontraron libros con ese genero" << std::endl;
+    system("pause");
 }

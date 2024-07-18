@@ -312,14 +312,13 @@ void Menu::menuFiltrarLibros(){
     std::string nombreAutor;
 
     int opt;
-    int opt2;
 
     do {
+        int opt2;
         system("cls");
         std::cout << "================== FILTRAR LIBROS ===================" << std::endl;
         std::cout << "1. POR GENERO" << std::endl;
-        std::cout << "2. POR AUTOR" << std::endl;
-        std::cout << "3. POR RANGO DE PRECIO" << std::endl;
+        std::cout << "2. POR RANGO DE PRECIO" << std::endl;
         std::cout << std::endl << std::endl;
 
         std::cout << "8. VOLVER" << std::endl;
@@ -329,22 +328,56 @@ void Menu::menuFiltrarLibros(){
         system("cls");
         switch(opt){
             case 1:
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cout << "\nIngrese el nombre del GENERO: ";
-                getline(std::cin, nombreGenero);
-                // llamar funcion que busca por genero pasando `nombreGenero`
-                std::cout << nombreGenero;
+                while(!volver2){
+                    system("cls");
+                    std::cout << "================== GENEROS ===================" << std::endl;
+                    std::cout << "1. Terror" << std::endl;
+                    std::cout << "2. Ciencia Ficcion" << std::endl;
+                    std::cout << "3. Comedia" << std::endl;
+                    std::cout << "4. Anime" << std::endl;
+                    std::cout << "5. Drama" << std::endl;
+                    std::cout << std::endl << std::endl;
+
+                    std::cout << "8. VOLVER" << std::endl;
+                    std::cout << "9. SALIR" << std::endl;
+                    std::cout << "\nOpcion: ";
+                    std::cin >> opt2;
+                    switch(opt2){
+                        case 1:
+                            mgLibros.filtrarPorGenero(1);
+                            break;
+                        case 2:
+                            mgLibros.filtrarPorGenero(2);
+                            break;
+                        case 3:
+                            mgLibros.filtrarPorGenero(3);
+                            break;
+                        case 4:
+                            mgLibros.filtrarPorGenero(4);
+                            break;
+                        case 5:
+                            mgLibros.filtrarPorGenero(5);
+                            break;
+                        case 8:
+                            volver2 = true;
+                            break;
+                        case 9:
+                            salir = true;
+                            std::cout << "Saliendo..." << std::endl;
+                            break;
+                        default:
+                            std::cout << "Opcion invalida" << std::endl;
+                            system("pause");
+                            break;
+                    }
+
+                    if(salir){
+                        exit(1);
+                    }
+                }
                 system("pause");
                 break;
             case 2:
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cout << "\nIngrese el nombre del AUTOR: ";
-                getline(std::cin, nombreAutor);
-                // llamar funcion que busca por genero pasando `nombreAutor`
-                std::cout << nombreAutor;
-                system("pause");
-                break;
-            case 3:
                 while(!volver2){
                     system("cls");
                     std::cout << "================== RANGO DE PRECIOS ===================" << std::endl;
@@ -361,19 +394,19 @@ void Menu::menuFiltrarLibros(){
                     std::cin >> opt2;
                     switch(opt2){
                         case 1:
-                            // llamar funcion pasando como parametro (0, 100)
+                            mgLibros.filtrarPorPrecio(0, 100);
                             break;
                         case 2:
-                            // llamar funcion pasando como parametro (101, 200)
+                            mgLibros.filtrarPorPrecio(100, 200);
                             break;
                         case 3:
-                            // llamar funcion pasando como parametro (201, 500)
+                            mgLibros.filtrarPorPrecio(200, 500);
                             break;
                         case 4:
-                            // llamar funcion pasando como parametro (501, 1000)
+                            mgLibros.filtrarPorPrecio(500, 1000);
                             break;
                         case 5:
-                            // llamar funcion pasando como parametro (1000, )
+                            mgLibros.filtrarPorPrecio(1000, 10000);
                             break;
                         case 8:
                             volver2 = true;
@@ -425,10 +458,12 @@ void Menu::menuFiltrarClientes(){
     int opt2;
 
     do {
+        char nombreCliente[50];
         system("cls");
         std::cout << "================== FILTRAR CLIENTES ===================" << std::endl;
-        std::cout << "1. POR RANGO DE EDAD" << std::endl;
-        std::cout << "2. POR GENERO FAVORITO" << std::endl;
+        std::cout << "1. BUSCAR POR NOMBRE" << std::endl;
+        std::cout << "2. POR RANGO DE EDAD" << std::endl;
+        std::cout << "3. POR GENERO FAVORITO" << std::endl;
 
         std::cout << std::endl << std::endl;
 
@@ -439,6 +474,12 @@ void Menu::menuFiltrarClientes(){
         system("cls");
         switch(opt){
             case 1:
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+                std::cout << "\nIngrese el Nombre del Cliente:";
+                std::cin.getline(nombreCliente, 50);
+                mgClientes.filtrarPorNombre(nombreCliente);
+                break;
+            case 2:
                 while(!volver2){
                     system("cls");
                     std::cout << "================== RANGO DE EDAD ===================" << std::endl;
@@ -455,19 +496,19 @@ void Menu::menuFiltrarClientes(){
                     std::cin >> opt2;
                     switch(opt2){
                         case 1:
-                            // llamar funcion pasando como parametro (10, 15)
+                            mgClientes.filtrarPorEdad(10, 15);
                             break;
                         case 2:
-                            // llamar funcion pasando como parametro (15, 20)
+                            mgClientes.filtrarPorEdad(15, 20);
                             break;
                         case 3:
-                            // llamar funcion pasando como parametro (20, 30)
+                            mgClientes.filtrarPorEdad(20, 30);
                             break;
                         case 4:
-                            // llamar funcion pasando como parametro (30, 45)
+                            mgClientes.filtrarPorEdad(30, 45);
                             break;
                         case 5:
-                            // llamar funcion pasando como parametro (45, 100)
+                            mgClientes.filtrarPorEdad(45, 150);
                             break;
                         case 8:
                             volver2 = true;
@@ -488,10 +529,10 @@ void Menu::menuFiltrarClientes(){
                 }
                 volver2 = false;
                 break;
-            case 2:
+            case 3:
                 while(!volver2){
                     system("cls");
-                    std::cout << "================== RANGO DE EDAD ===================" << std::endl;
+                    std::cout << "================== GENEROS ===================" << std::endl;
                     std::cout << "1. Terror" << std::endl;
                     std::cout << "2. Ciencia Ficcion" << std::endl;
                     std::cout << "3. Comedia" << std::endl;
@@ -505,19 +546,19 @@ void Menu::menuFiltrarClientes(){
                     std::cin >> opt2;
                     switch(opt2){
                         case 1:
-                            // llamar funcion pasando como parametro (10, 15)
+                            mgClientes.filtrarPorGenero(1);
                             break;
                         case 2:
-                            // llamar funcion pasando como parametro (15, 20)
+                            mgClientes.filtrarPorGenero(2);
                             break;
                         case 3:
-                            // llamar funcion pasando como parametro (20, 30)
+                            mgClientes.filtrarPorGenero(3);
                             break;
                         case 4:
-                            // llamar funcion pasando como parametro (30, 45)
+                            mgClientes.filtrarPorGenero(4);
                             break;
                         case 5:
-                            // llamar funcion pasando como parametro (45, 100)
+                            mgClientes.filtrarPorGenero(5);
                             break;
                         case 8:
                             volver2 = true;
@@ -563,9 +604,9 @@ void Menu::menuFiltrarVentas(){
     bool salir = false;
     bool volver = false;
 
-    std::string nombreLibro;
-    std::string nombreCliente;
-    std::string nombreAutor;
+    char nombreLibro[50];
+    char nombreCliente[50];
+    char nombreVendedor[50];
 
 
     int opt;
@@ -575,7 +616,7 @@ void Menu::menuFiltrarVentas(){
         std::cout << "================== FILTRAR VENTAS ===================" << std::endl;
         std::cout << "1. POR LIBRO" << std::endl;
         std::cout << "2. POR CLIENTE" << std::endl;
-        std::cout << "3. POR AUTOR" << std::endl;
+        std::cout << "3. POR VENDEDOR" << std::endl;
         std::cout << std::endl << std::endl;
 
         std::cout << "8. VOLVER" << std::endl;
@@ -586,21 +627,21 @@ void Menu::menuFiltrarVentas(){
         switch(opt){
             case 1:
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cout << "\nIngrese el nombre del LIBRO: ";
-                getline(std::cin, nombreLibro);
-                // llamar funcion que filtra por nombre de libro pasando `nombreLibro`
+                std::cout << "\nIngrese el titulo del LIBRO: ";
+                std::cin.getline(nombreLibro, 50);
+                mgVentas.filtrarPorLibro(nombreLibro);
                 break;
             case 2:
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cout << "\nIngrese el nombre del CLIENTE: ";
-                getline(std::cin, nombreCliente);
-                // llamar funcion que filtra por nombre de cliente pasando `nombreCliente`
+                std::cin.getline(nombreCliente, 50);
+                mgVentas.filtrarPorCliente(nombreCliente);
                 break;
              case 3:
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-                std::cout << "\nIngrese el nombre del CLIENTE: ";
-                getline(std::cin, nombreAutor);
-                // llamar funcion que filtra por nombre de autor pasando `nombreAutor`
+                std::cout << "\nIngrese el nombre del VENDEDOR: ";
+                std::cin.getline(nombreVendedor, 50);
+                mgVentas.filtrarPorVendedor(nombreVendedor);
                 break;
             case 8:
                 volver = true;
@@ -648,8 +689,8 @@ void Menu::menuCompra()
         std::cout << "3. QUITAR LIBRO" << std::endl;
         std::cout << "4. FINALIZAR COMPRA" << std::endl;
         std::cout << std::endl;
-        std::cout << "9. SALIR" << std::endl;
-        std::cout << "Opcion: ";
+        std::cout << "8. VOLVER" << std::endl;
+        std::cout << "\nOpcion: ";
         std::cin >> opt;
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
@@ -681,7 +722,7 @@ void Menu::menuCompra()
                     carrito.listarItems();
                     std::cout << std::endl << std::endl;
                     std::cout << "1. ELIMINAR LIBRO" << std::endl;
-                    std::cout << "9. VOLVER" << std::endl;
+                    std::cout << "8. VOLVER" << std::endl;
                     std::cout << std::endl;
 
                     std::cout << "Opcion: ";                    std::cin >> opt2;
@@ -723,9 +764,8 @@ void Menu::menuCompra()
 
                 finalizarCompra(idCliente, idVendedor);
                 break;
-            case 9:
+            case 8:
                 salir = true;
-                std::cout << "Saliendo..." << std::endl;
                 break;
             default:
                 std::cout << "Opcion invalida" << std::endl;
@@ -735,8 +775,6 @@ void Menu::menuCompra()
 
 
     } while(!salir);
-
-    system("pause");
 }
 
 

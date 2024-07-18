@@ -149,5 +149,10 @@ bool Libro::modificarEnDisco(int pos)
 
 void Libro::toString()
 {
-    std::cout << _id << "\t" << _titulo << "\t" << _stock << "\t" << _precio << std::endl;
+    std::cout << _id << "\t" << _stock << "\t" << _precio << "\t" << _titulo << std::endl;
+}
+
+void Libro::toStringExtendido()
+{
+    std::cout << _id << "\t" <<  _stock << "\t" << _estado << "\t" << _precio << "\t" << _titulo << "\t"; _publicacion.MostrarFecha();
 }

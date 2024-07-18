@@ -1,6 +1,7 @@
 #include "managerclientes.h"
 #include "cliente.h"
 #include <limits>
+#include <string.h>
 ManagerClientes::ManagerClientes() : clientes(nullptr), cantidad(0), capacidad(10)
 {
     clientes = new Cliente[capacidad];
@@ -180,4 +181,60 @@ Cliente ManagerClientes::obtenerCliente(int id)
         pos++;
     }
     return cliente;
+}
+
+void ManagerClientes::filtrarPorNombre(const char* nombre)
+{
+    Cliente cliente;
+    int pos = 0;
+    bool encontrado = false;
+    while(cliente.leerDeDisco(pos)){
+        if(strcmp(cliente.getNombres(), nombre) == 0){
+            encontrado = true;
+            std::cout << "--------------------------------" << std::endl;
+            cliente.toString();
+            std::cout << "--------------------------------" << std::endl;
+        }
+        pos++;
+    }
+    if(!encontrado) std::cout << "No se encontraron clientes con ese nombre: " << nombre << std::endl;
+    system("pause");
+}
+
+void ManagerClientes::filtrarPorGenero(int idGenero)
+{
+    Cliente cliente;
+    int pos = 0;
+    bool encontrado = false;
+    while(cliente.leerDeDisco(pos)){
+        if(cliente.getIdGeneroFavorito() == idGenero){
+            encontrado = true;
+            std::cout << "--------------------------------" << std::endl;
+            cliente.toString();
+            std::cout << "--------------------------------" << std::endl;
+        }
+        pos++;
+    }
+    if(!encontrado) std::cout << "No se encontraron clientes con ese genero: " << idGenero << std::endl;
+    system("pause");
+}
+
+void ManagerClientes::filtrarPorEdad(int edadMin, int edadMax)
+{
+    Cliente cliente;
+    int pos = 0;
+    int edad;
+    bool encontrado = false;
+    while(cliente.leerDeDisco(pos)){
+        edad = 2024 - cliente.getNacimiento().getAnio();
+        if(edad > edadMin && edad < edadMax){
+            encontrado = true;
+            std::cout << "--------------------------------" << std::endl;
+            cliente.toString();
+            std::cout << "--------------------------------" << std::endl;
+        }
+        pos++;
+    }
+    if(!encontrado) std::cout << "No se encontraron clientes con ese rango de edad" << std::endl;
+    system("pause");
 }

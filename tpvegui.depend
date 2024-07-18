@@ -3,7 +3,7 @@
 	<iostream>
 	"menu.h"
 
-1721258477 source:c:\users\bezpa\desktop\asd\tpvegui\menu.cpp
+1721262175 source:c:\users\bezpa\desktop\asd\tpvegui\menu.cpp
 	"Menu.h"
 	<iostream>
 	<limits>
@@ -49,12 +49,13 @@
 	"persona.h"
 	<string.h>
 
-1721253932 source:c:\users\bezpa\desktop\asd\tpvegui\managerclientes.cpp
+1721261594 source:c:\users\bezpa\desktop\asd\tpvegui\managerclientes.cpp
 	"managerclientes.h"
 	"cliente.h"
 	<limits>
+	<string.h>
 
-1721253902 c:\users\bezpa\desktop\asd\tpvegui\managerclientes.h
+1721261118 c:\users\bezpa\desktop\asd\tpvegui\managerclientes.h
 	"cliente.h"
 
 1721240121 source:c:\users\bezpa\desktop\asd\tpvegui\cliente.cpp
@@ -71,34 +72,36 @@
 1721242087 c:\users\bezpa\desktop\asd\tpvegui\venta.h
 	"fecha.h"
 
-1721258198 c:\users\bezpa\desktop\asd\tpvegui\managerventas.h
+1721259428 c:\users\bezpa\desktop\asd\tpvegui\managerventas.h
 	"detalleventa.h"
 	"venta.h"
 
-1721258355 source:c:\users\bezpa\desktop\asd\tpvegui\managerventas.cpp
+1721260740 source:c:\users\bezpa\desktop\asd\tpvegui\managerventas.cpp
 	"managerventas.h"
 	"venta.h"
 	<limits>
+	<string.h>
 
 1721257974 c:\users\bezpa\desktop\asd\tpvegui\carrito.h
 	"libro.h"
 
-1721246803 c:\users\bezpa\desktop\asd\tpvegui\libro.h
+1721262751 c:\users\bezpa\desktop\asd\tpvegui\libro.h
 	"fecha.h"
 
 1721258004 source:c:\users\bezpa\desktop\asd\tpvegui\carrito.cpp
 	"carrito.h"
 
-1721257461 source:c:\users\bezpa\desktop\asd\tpvegui\libro.cpp
+1721262814 source:c:\users\bezpa\desktop\asd\tpvegui\libro.cpp
 	"libro.h"
 	<string.h>
 
-1721248665 source:c:\users\bezpa\desktop\asd\tpvegui\managerlibros.cpp
+1721263187 source:c:\users\bezpa\desktop\asd\tpvegui\managerlibros.cpp
 	"managerlibros.h"
 	"libro.h"
 	<limits>
+	<string.h>
 
-1721246299 c:\users\bezpa\desktop\asd\tpvegui\managerlibros.h
+1721261954 c:\users\bezpa\desktop\asd\tpvegui\managerlibros.h
 	"libro.h"
 
 1721257896 source:c:\users\bezpa\desktop\asd\tpvegui\detalleventa.cpp

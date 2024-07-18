@@ -21,6 +21,9 @@ class ManagerClientes
         void agregarCliente(const Cliente& cliente);
         void setEstadoCliente(int id, bool estado);
         Cliente obtenerCliente(int id);
+        void filtrarPorNombre(const char* nombre);
+        void filtrarPorGenero(int idGenero);
+        void filtrarPorEdad(int edadMin, int edadMax);
 };
 
 #endif // MANAGERCLIENTES_H

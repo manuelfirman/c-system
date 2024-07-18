@@ -1,6 +1,7 @@
 #include "managerventas.h"
 #include "venta.h"
 #include <limits>
+#include <string.h>
 
 ManagerVentas::ManagerVentas() : ventas(nullptr), cantidad(0), capacidad(10)
 {
@@ -183,4 +184,58 @@ bool ManagerVentas::buscarId(int id)
         pos++;
     }
     return false;
+}
+
+void ManagerVentas::filtrarPorLibro(const char* titulo)
+{
+    DetalleVenta venta;
+    int pos = 0;
+    bool encontrado = false;
+    while(venta.leerDeDisco(pos)){
+        if(strcmp(venta.getTituloLibro(), titulo) == 0){
+            encontrado = true;
+            std::cout << "--------------------------------" << std::endl;
+            venta.toString();
+            std::cout << "--------------------------------" << std::endl;
+        }
+        pos++;
+    }
+    if(!encontrado) std::cout << "No se encontraron ventas del libro " << titulo << std::endl;
+    system("pause");
+}
+
+void ManagerVentas::filtrarPorCliente(const char* nombre)
+{
+    DetalleVenta venta;
+    int pos = 0;
+    bool encontrado = false;
+    while(venta.leerDeDisco(pos)){
+        if(strcmp(venta.getNombreCliente(), nombre) == 0){
+            encontrado = true;
+            std::cout << "--------------------------------" << std::endl;
+            venta.toString();
+            std::cout << "--------------------------------" << std::endl;
+        }
+        pos++;
+    }
+    if(!encontrado) std::cout << "No se encontraron ventas del libro " << nombre << std::endl;
+    system("pause");
+}
+
+void ManagerVentas::filtrarPorVendedor(const char* nombre)
+{
+    DetalleVenta venta;
+    int pos = 0;
+    bool encontrado = false;
+    while(venta.leerDeDisco(pos)){
+        if(strcmp(venta.getNombreVendedor(), nombre) == 0){
+            encontrado = true;
+            std::cout << "--------------------------------" << std::endl;
+            venta.toString();
+            std::cout << "--------------------------------" << std::endl;
+        }
+        pos++;
+    }
+    if(!encontrado) std::cout << "No se encontraron ventas del libro " << nombre << std::endl;
+    system("pause");
 }

@@ -22,6 +22,9 @@ class ManagerLibros
         void agregarLibro(const Libro& libro);
         void setEstadoLibro(int id, bool estado);
         Libro getLibro(int id);
+        void filtrarPorNombre(const char* nombre);
+        void filtrarPorPrecio(int precioMin, int precioMax);
+        void filtrarPorGenero(int idGenero);
 };
 
 #endif // MANAGERLIBROS_H
