@@ -107,6 +107,10 @@ void ManagerVentas::registrarVenta() {
     system("pause");
 }
 
+int ManagerVentas::getCantidad()
+{
+    return cantidad;
+}
 
 void ManagerVentas::listarVentas() {
     std::cout << "======================================" << std::endl;

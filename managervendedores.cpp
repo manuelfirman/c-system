@@ -41,7 +41,7 @@ void ManagerVendedores::cargarVendedores() {
 void ManagerVendedores::registrarVendedor() {
     std::cout << "===== REGISTRAR NUEVO VENDEDOR ======" << std::endl;
 
-    int id;
+    //int id;
     char apellidos[50];
     char nombres[50];
     //int dia, mes, anio;
@@ -49,18 +49,18 @@ void ManagerVendedores::registrarVendedor() {
     Fecha nacimiento;
     Fecha ingreso;
 
+    /*
     std::cout << "Ingrese ID: ";
     std::cin >> id;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-    /*
     while(!buscarId(id)){
         std::cout << "El ID ingresado ya existe. Intente nuevamente con otro." << std::endl;
         std::cout << "Ingrese ID: ";
         std::cin >> id;
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     */
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Ingrese apellidos: ";
     //std::getline(std::cin, apellidos);
@@ -81,7 +81,7 @@ void ManagerVendedores::registrarVendedor() {
 
     Vendedor nuevoVendedor;
 
-    nuevoVendedor.setId(id);
+    nuevoVendedor.setId(cantidad+1);
     nuevoVendedor.setApellidos(apellidos);
     nuevoVendedor.setNombres(nombres);
     nuevoVendedor.setNacimiento(nacimiento);

@@ -6,7 +6,6 @@
 class DetalleVenta
 {
     private:
-        static int contador;
         int id;
         char nombreVendedor[50];
         char nombreCliente[50];

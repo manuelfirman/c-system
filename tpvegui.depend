@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1721327976 source:c:\users\bezpa\desktop\asd\tpvegui\main.cpp
+1721328345 source:c:\users\bezpa\desktop\asd\tpvegui\main.cpp
 	<iostream>
 	"menu.h"
 
-1721327735 source:c:\users\bezpa\desktop\asd\tpvegui\menu.cpp
+1721328504 source:c:\users\bezpa\desktop\asd\tpvegui\menu.cpp
 	"Menu.h"
 	<iostream>
 	<limits>
@@ -16,7 +16,7 @@
 	"managerlibros.h"
 	"carrito.h"
 
-1721326982 source:c:\users\bezpa\desktop\asd\tpvegui\managervendedores.cpp
+1721328923 source:c:\users\bezpa\desktop\asd\tpvegui\managervendedores.cpp
 	"managervendedores.h"
 	"vendedor.h"
 	<limits>
@@ -49,7 +49,7 @@
 	"persona.h"
 	<string.h>
 
-1721327157 source:c:\users\bezpa\desktop\asd\tpvegui\managerclientes.cpp
+1721328970 source:c:\users\bezpa\desktop\asd\tpvegui\managerclientes.cpp
 	"managerclientes.h"
 	"cliente.h"
 	<limits>
@@ -72,11 +72,11 @@
 1721242087 c:\users\bezpa\desktop\asd\tpvegui\venta.h
 	"fecha.h"
 
-1721259428 c:\users\bezpa\desktop\asd\tpvegui\managerventas.h
+1721328474 c:\users\bezpa\desktop\asd\tpvegui\managerventas.h
 	"detalleventa.h"
 	"venta.h"
 
-1721260740 source:c:\users\bezpa\desktop\asd\tpvegui\managerventas.cpp
+1721328461 source:c:\users\bezpa\desktop\asd\tpvegui\managerventas.cpp
 	"managerventas.h"
 	"venta.h"
 	<limits>
@@ -104,10 +104,10 @@
 1721322649 c:\users\bezpa\desktop\asd\tpvegui\managerlibros.h
 	"libro.h"
 
-1721327583 source:c:\users\bezpa\desktop\asd\tpvegui\detalleventa.cpp
+1721328354 source:c:\users\bezpa\desktop\asd\tpvegui\detalleventa.cpp
 	"detalleventa.h"
 	<string.h>
 
-1721327682 c:\users\bezpa\desktop\asd\tpvegui\detalleventa.h
+1721328350 c:\users\bezpa\desktop\asd\tpvegui\detalleventa.h
 	<iostream>
 

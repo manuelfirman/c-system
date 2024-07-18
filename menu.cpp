@@ -817,6 +817,7 @@ void Menu::finalizarCompra(int idCliente, int idVendedor)
 
     DetalleVenta detalleVenta;
 
+    detalleVenta.setId(mgVentas.getCantidad()+1);
     detalleVenta.setTituloLibro(libro.getTitulo());
     detalleVenta.setNombreCliente(cliente.getNombres());
     detalleVenta.setNombreVendedor(vendedor.getNombres());

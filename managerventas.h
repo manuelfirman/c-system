@@ -16,6 +16,7 @@ class ManagerVentas
         ManagerVentas();
         virtual ~ManagerVentas();
 
+        int getCantidad();
         void cargarVentas();
         void actualizarVentas();
         void listarVentas();

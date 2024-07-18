@@ -3,7 +3,7 @@
 
 DetalleVenta::DetalleVenta()
 {
-    id = ++contador;
+
 }
 
 DetalleVenta::~DetalleVenta()

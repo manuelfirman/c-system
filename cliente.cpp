@@ -56,7 +56,7 @@ void Cliente::toString()
     std::cout << "Domicilio: " << _domicilio << "\n";
     std::cout << "Telefono: " << _telefono << "\n";
     std::cout << "Mail: " << _mail << "\n";
-    std::cout << "Genero Favorito: " << _idGeneroFavorito << "\n"; // agregar condicional para mostrar texto en vez de numero
+    std::cout << "Genero Favorito: " << (_idGeneroFavorito == 1 ? "Terror" : _idGeneroFavorito == 2 ? "Ficcion" : _idGeneroFavorito == 3 ? "Comedia" : _idGeneroFavorito == 4 ? "Anime" : "Drama") << "\n"; // agregar condicional para mostrar texto en vez de numero
 
 }
 

@@ -42,7 +42,7 @@ void ManagerClientes::cargarClientes() {
 void ManagerClientes::registrarCliente() {
     std::cout << "===== REGISTRAR NUEVO CLIENTE ======" << std::endl;
 
-    int id;
+    //int id;
     char apellidos[50];
     char nombres[50];
     float sueldo;
@@ -52,10 +52,10 @@ void ManagerClientes::registrarCliente() {
     char mail[100];
     int idGeneroFavorito;
 
+    /*
     std::cout << "Ingrese ID: ";
     std::cin >> id;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    /*
     while(!buscarId(id)){
         std::cout << "El ID ingresado ya existe. Intente nuevamente con otro." << std::endl;
         std::cout << "Ingrese ID: ";
@@ -63,6 +63,7 @@ void ManagerClientes::registrarCliente() {
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
     */
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Ingrese apellidos: ";
     std::cin.getline(apellidos, 50);
@@ -89,7 +90,7 @@ void ManagerClientes::registrarCliente() {
 
     Cliente nuevoCliente;
 
-    nuevoCliente.setId(id);
+    nuevoCliente.setId(cantidad+1);
     nuevoCliente.setApellidos(apellidos);
     nuevoCliente.setNombres(nombres);
     nuevoCliente.setNacimiento(nacimiento);

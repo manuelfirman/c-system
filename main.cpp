@@ -2,8 +2,6 @@
 #include "menu.h"
 
 
-int DetalleVenta::contador = 0;
-
 int main()
 {
     Menu menu;
