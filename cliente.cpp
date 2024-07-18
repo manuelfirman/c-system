@@ -60,6 +60,12 @@ void Cliente::toString()
 
 }
 
+void Cliente::toStringShort()
+{
+    std::cout << _id << "\t" << _nombres << "\t" << _apellidos << "\n"; // agregar condicional para mostrar texto en vez de numero
+
+}
+
 bool Cliente::grabarEnDisco(){
     FILE* pFile = fopen("clientes.dat", "ab");
     if(pFile == NULL) {

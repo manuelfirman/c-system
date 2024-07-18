@@ -21,9 +21,9 @@ void Menu::iniciar()
 
     do {
         system("cls");
-        std::cout << "=====================================================" << std::endl;
-        std::cout << std::string(20, ' ') << "MENU" << std::endl;
-        std::cout << "=====================================================" << std::endl;
+        std::cout << "==================================================================" << std::endl;
+        std::cout << std::string(27, ' ') << "MENU" << std::endl;
+        std::cout << "==================================================================" << std::endl;
         std::cout << "1. COMPRAR LIBROS" << std::endl;
         std::cout << std::endl << std::endl;
         std::cout << "2. ADMINISTRAR LIBROS" << std::endl;
@@ -81,9 +81,9 @@ void Menu::administrarLibros()
 
     do {
         system("cls");
-        std::cout << "=====================================================" << std::endl;
-        std::cout << std::string(20, ' ') << "LIBROS" << std::endl;
-        std::cout << "=====================================================" << std::endl;
+        std::cout << "==================================================================" << std::endl;
+        std::cout << std::string(27, ' ') << "LIBROS" << std::endl;
+        std::cout << "==================================================================" << std::endl;
         std::cout << "1. LISTAR" << std::endl;
         std::cout << "2. FILTRAR" << std::endl;
         std::cout << "3. CARGAR NUEVO LIBRO" << std::endl;
@@ -135,9 +135,9 @@ void Menu::administrarVendedores()
 
     do {
         system("cls");
-        std::cout << "=====================================================" << std::endl;
-        std::cout << std::string(20, ' ') << "VENDEDORES" << std::endl;
-        std::cout << "=====================================================" << std::endl;
+        std::cout << "==================================================================" << std::endl;
+        std::cout << std::string(27, ' ') << "VENDEDORES" << std::endl;
+        std::cout << "==================================================================" << std::endl;
         std::cout << "1. LISTAR VENDEDORES" << std::endl;
         std::cout << "2. CARGAR NUEVO VENDEDOR" << std::endl;
         std::cout << "3. BAJA VENDEDOR" << std::endl;
@@ -198,9 +198,9 @@ void Menu::administrarClientes()
 
     do {
         system("cls");
-        std::cout << "=====================================================" << std::endl;
-        std::cout << std::string(20, ' ') << "CLIENTES" << std::endl;
-        std::cout << "=====================================================" << std::endl;
+        std::cout << "==================================================================" << std::endl;
+        std::cout << std::string(27, ' ') << "CLIENTES" << std::endl;
+        std::cout << "==================================================================" << std::endl;
         std::cout << "1. LISTAR CLIENTES" << std::endl;
         std::cout << "2. FILTRAR CLIENTES" << std::endl;
         std::cout << "3. CARGAR NUEVO CLIENTE" << std::endl;
@@ -264,9 +264,9 @@ void Menu::administrarVentas()
 
     do {
         system("cls");
-        std::cout << "=====================================================" << std::endl;
-        std::cout << std::string(20, ' ') << "VENTAS" << std::endl;
-        std::cout << "=====================================================" << std::endl;
+        std::cout << "==================================================================" << std::endl;
+        std::cout << std::string(27, ' ') << "VENTAS" << std::endl;
+        std::cout << "==================================================================" << std::endl;
         std::cout << "1. LISTAR" << std::endl;
         std::cout << "2. FILTRAR" << std::endl;
         std::cout << std::endl << std::endl;
@@ -677,9 +677,9 @@ void Menu::menuCompra()
         int idVendedor;
 
         system("cls");
-        std::cout << "=====================================================" << std::endl;
-        std::cout << std::string(20, ' ') << "MENU COMPRA" << std::endl;
-        std::cout << "=====================================================" << std::endl;
+        std::cout << "==================================================================" << std::endl;
+        std::cout << std::string(27, ' ') << "MENU COMPRA" << std::endl;
+        std::cout << "==================================================================" << std::endl;
 
         mgLibros.listarLibrosVenta();
 
@@ -735,7 +735,7 @@ void Menu::menuCompra()
                             else std::cout << "Error. Indice incorrecto." << std::endl;
                             system("pause");
                             break;
-                        case 9:
+                        case 8:
                             salir2 = true;
                             break;
                         default:
@@ -747,21 +747,28 @@ void Menu::menuCompra()
                 break;
             case 4:
                 system("cls");
-                std::cout << "Ingrese ID Vendedor: ";
+
+                // listar vendedores
+                mgVendedores.listarVendedoresVenta();
+
+                std::cout << "\n\nIngrese ID Vendedor: ";
                 std::cin >> idVendedor;
                 while(!mgVendedores.buscarId(idVendedor)){
                     std::cout << "ID Invalido" << std::endl;
                     std::cout << "Ingrese ID Vendedor: ";
                     std::cin >> idVendedor;
                 }
+                system("cls");
 
-                std::cout << "Ingrese ID Cliente: ";
+                mgClientes.listarClientesVenta();
+                std::cout << "\n\nIngrese ID Cliente: ";
                 std::cin >> idCliente;
                 while(!mgClientes.buscarId(idCliente)){
                     std::cout << "ID Invalido" << std::endl;
                     std::cout << "Ingrese ID Cliente: ";
                     std::cin >> idCliente;
                 }
+                system("cls");
 
                 finalizarCompra(idCliente, idVendedor);
                 break;
@@ -781,6 +788,12 @@ void Menu::menuCompra()
 
 void Menu::finalizarCompra(int idCliente, int idVendedor)
 {
+    if(carrito.obtenerCantidad() <= 0){
+        std::cout << "No se agrego ningun libro" << std::endl;
+        system("pause");
+        return;
+    }
+
     float total;
     std::cout << "=====================================================" << std::endl;
     std::cout << std::string(20, ' ') << "INFORME DE VENTA" << std::endl;
@@ -804,7 +817,6 @@ void Menu::finalizarCompra(int idCliente, int idVendedor)
 
     DetalleVenta detalleVenta;
 
-    detalleVenta.setIdLibro(libro.getId());
     detalleVenta.setTituloLibro(libro.getTitulo());
     detalleVenta.setNombreCliente(cliente.getNombres());
     detalleVenta.setNombreVendedor(vendedor.getNombres());

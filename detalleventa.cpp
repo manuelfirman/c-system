@@ -3,7 +3,7 @@
 
 DetalleVenta::DetalleVenta()
 {
-    //ctor
+    id = ++contador;
 }
 
 DetalleVenta::~DetalleVenta()
@@ -11,8 +11,8 @@ DetalleVenta::~DetalleVenta()
     //dtor
 }
 
-int DetalleVenta::getIdLibro() {
-    return idLibro;
+int DetalleVenta::getId() {
+    return id;
 }
 
 const char* DetalleVenta::getNombreVendedor() {
@@ -32,8 +32,8 @@ float DetalleVenta::getPrecioTotal() {
 }
 
 // Setters
-void DetalleVenta::setIdLibro(int newIdLibro) {
-    idLibro = newIdLibro;
+void DetalleVenta::setId(int newIdLibro) {
+    id = newIdLibro;
 }
 
 void DetalleVenta::setPrecioTotal(float precio)
@@ -89,7 +89,7 @@ bool DetalleVenta::modificarEnDisco(int pos)
 
 void DetalleVenta::toString()
 {
-    std::cout << "ID: " << idLibro << std::endl;
+    std::cout << "ID: " << id << std::endl;
     std::cout << "Cliente: " << nombreCliente << std::endl;
     std::cout << "Vendedor: " << nombreVendedor << std::endl;
     std::cout << "Titulo: " << tituloLibro << std::endl;

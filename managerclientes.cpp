@@ -130,6 +130,17 @@ void ManagerClientes::listarClientes() {
     system("pause");
 }
 
+void ManagerClientes::listarClientesVenta() {
+    std::cout << "ID\tNOMBRE\tAPELLIDO\n";
+    for (int i = 0; i < cantidad; ++i) {
+         if (!clientes[i].getEstado()) {
+            continue;
+        }
+        clientes[i].toStringShort();
+    }
+
+}
+
 void ManagerClientes::setEstadoCliente(int id, bool estado)
 {
     if(id < 0) {

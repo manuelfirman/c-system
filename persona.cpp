@@ -82,5 +82,5 @@ void Persona::toString()
 {
     std::cout << "ID: " << _id << "\t" << "Estado: " << (_estado ? "Activo" : "Inactivo") << "\n";
     std::cout << "Nombres: " << _nombres << "\t" << "Apellidos: " << _apellidos << "\n";
-    std::cout << "Fecha de Nacimiento: "; _nacimiento.MostrarFecha();
+    std::cout << "Fecha de Nacimiento: "; _nacimiento.MostrarFecha(); std::cout << std::endl;
 }

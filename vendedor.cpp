@@ -36,7 +36,12 @@ void Vendedor::toString()
 {
     Persona::toString();
     std::cout << "Sueldo: $" << _sueldo << "\n";
-    std::cout << "Fecha de Ingreso: "; _ingreso.MostrarFecha();
+    std::cout << "Fecha de Ingreso: "; _ingreso.MostrarFecha();std::cout << std::endl;
+}
+
+void Vendedor::toStringShort()
+{
+    std::cout << _id << "\t" << _nombres << "\t" << _apellidos << "\n";
 }
 
 bool Vendedor::grabarEnDisco(){

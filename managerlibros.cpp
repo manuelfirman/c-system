@@ -98,18 +98,14 @@ void ManagerLibros::registrarLibro() {
 }
 
 void ManagerLibros::listarLibros() {
-    std::cout << "======================================" << std::endl;
-    std::cout << "======= LISTADO DE LIBROS ========" << std::endl;
-    std::cout << "======================================" << std::endl << std::endl;
+    std::cout << "===================== LISTADO DE LIBROS =====================" << std::endl;
+    std::cout << std::endl;
     std::cout << "Ingrese '1' para mostrar solo los libros activos." << std::endl;
     std::cout << "Ingrese cualquier otro caracter para mostrar todos los libros." << std::endl << std::endl;
 
     char opcion;
     std::cin >> opcion;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-
-
-    std::cout << "============= LISTADO DE LIBROS =============" << std::endl << std::endl;
 
     std::cout << "ID\tSTOCK\tGENERO\tPRECIO\tTITULO\t\t\tPUBLICACION" << std::endl;
     for (int i = 0; i < cantidad; ++i) {
@@ -125,12 +121,12 @@ void ManagerLibros::listarLibros() {
 
 void ManagerLibros::listarLibrosVenta() {
 
-    std::cout << "ID\tSTOCK\tPRECIO\tTITULO" << std::endl;
+    std::cout << "ID\tSTOCK\tGENERO\tPRECIO\tPUBLICACION\tTITULO" << std::endl;
     for (int i = 0; i < cantidad; ++i) {
          if (!libros[i].getEstado()) {
             continue;
         }
-        libros[i].toString();
+        libros[i].toStringExtendido();
     }
 }
 

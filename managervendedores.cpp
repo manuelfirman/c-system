@@ -119,6 +119,17 @@ void ManagerVendedores::listarVendedores() {
     system("pause");
 }
 
+void ManagerVendedores::listarVendedoresVenta() {
+
+    std::cout << "ID\tNOMBRE\tAPELLIDO\n";
+    for (int i = 0; i < cantidad; ++i) {
+         if (!vendedores[i].getEstado()) {
+            continue;
+        }
+        vendedores[i].toStringShort();
+    }
+}
+
 void ManagerVendedores::setEstadoVendedor(int id, bool estado)
 {
     if(id < 0) {

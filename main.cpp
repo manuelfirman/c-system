@@ -1,7 +1,8 @@
 #include <iostream>
 #include "menu.h"
 
-using namespace std;
+
+int DetalleVenta::contador = 0;
 
 int main()
 {

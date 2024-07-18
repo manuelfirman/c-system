@@ -159,5 +159,7 @@ void Libro::toString()
 
 void Libro::toStringExtendido()
 {
-    std::cout << _id << "\t" <<  _stock << "\t" << _estado << "\t" << _precio << "\t" << _titulo << "\t"; _publicacion.MostrarFecha();
+    std::cout << _id << "\t" <<  _stock << "\t" << (_idGenero == 1 ? "Terror" : _idGenero == 2 ? "Ficcion" : _idGenero == 3 ? "Comedia" : _idGenero == 4 ? "Anime" : "Drama") << "\t" << _precio << "\t"; _publicacion.MostrarFecha(); std::cout << "\t" << _titulo << "\t" << std::endl;
 }
+
+

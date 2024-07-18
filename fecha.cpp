@@ -37,7 +37,7 @@ bool Fecha::esbisiesto(int a)
 //Muestra la fecha en formato número. Ej.:  15/10/2008
 void Fecha::MostrarFecha()
 {
-  cout<<dia<<"/"<<mes<<"/"<<anio<<endl;
+  cout<<dia<<"/"<<mes<<"/"<<anio;
 }//¿Qué modificación habría que hacer para que siempre muestre DD/MM/AAAA?
 
 

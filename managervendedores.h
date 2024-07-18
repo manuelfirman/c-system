@@ -18,6 +18,7 @@ class ManagerVendedores
         bool buscarId(int id);
         void cargarVendedores();
         void listarVendedores();
+        void listarVendedoresVenta();
         void registrarVendedor();
         void agregarVendedor(const Vendedor& vendedor);
         void setEstadoVendedor(int id, bool estado);

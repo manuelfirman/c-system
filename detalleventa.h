@@ -6,7 +6,8 @@
 class DetalleVenta
 {
     private:
-        int idLibro;
+        static int contador;
+        int id;
         char nombreVendedor[50];
         char nombreCliente[50];
         char tituloLibro[50];
@@ -16,13 +17,13 @@ class DetalleVenta
         DetalleVenta();
         virtual ~DetalleVenta();
 
-        int getIdLibro();
+        int getId();
         const char* getNombreVendedor();
         const char* getNombreCliente();
         const char* getTituloLibro();
         float getPrecioTotal();
 
-        void setIdLibro(int id);
+        void setId(int id);
         void setNombreVendedor(const char* nombre);
         void setNombreCliente(const char* nombre);
         void setTituloLibro(const char* titulo);
@@ -33,7 +34,7 @@ class DetalleVenta
         bool modificarEnDisco(int pos);
 
         void toString();
-
 };
+
 
 #endif // DETALLEVENTA_H

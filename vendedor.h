@@ -27,6 +27,7 @@ class Vendedor : public Persona
         bool modificarEnDisco(int pos);
 
         void toString();
+        void toStringShort();
 };
 
 #endif // VENDEDOR_H

@@ -17,6 +17,7 @@ class ManagerClientes
         bool buscarId(int id);
         void cargarClientes();
         void listarClientes();
+        void listarClientesVenta();
         void registrarCliente();
         void agregarCliente(const Cliente& cliente);
         void setEstadoCliente(int id, bool estado);
