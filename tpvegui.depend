@@ -3,7 +3,7 @@
 	<iostream>
 	"menu.h"
 
-1721262175 source:c:\users\bezpa\desktop\asd\tpvegui\menu.cpp
+1721321807 source:c:\users\bezpa\desktop\asd\tpvegui\menu.cpp
 	"Menu.h"
 	<iostream>
 	<limits>
@@ -85,23 +85,23 @@
 1721257974 c:\users\bezpa\desktop\asd\tpvegui\carrito.h
 	"libro.h"
 
-1721262751 c:\users\bezpa\desktop\asd\tpvegui\libro.h
+1721322482 c:\users\bezpa\desktop\asd\tpvegui\libro.h
 	"fecha.h"
 
-1721258004 source:c:\users\bezpa\desktop\asd\tpvegui\carrito.cpp
+1721321879 source:c:\users\bezpa\desktop\asd\tpvegui\carrito.cpp
 	"carrito.h"
 
-1721262814 source:c:\users\bezpa\desktop\asd\tpvegui\libro.cpp
+1721322408 source:c:\users\bezpa\desktop\asd\tpvegui\libro.cpp
 	"libro.h"
 	<string.h>
 
-1721263187 source:c:\users\bezpa\desktop\asd\tpvegui\managerlibros.cpp
+1721322165 source:c:\users\bezpa\desktop\asd\tpvegui\managerlibros.cpp
 	"managerlibros.h"
 	"libro.h"
 	<limits>
 	<string.h>
 
-1721261954 c:\users\bezpa\desktop\asd\tpvegui\managerlibros.h
+1721322649 c:\users\bezpa\desktop\asd\tpvegui\managerlibros.h
 	"libro.h"
 
 1721257896 source:c:\users\bezpa\desktop\asd\tpvegui\detalleventa.cpp

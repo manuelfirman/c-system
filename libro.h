@@ -41,6 +41,7 @@ class Libro
         bool modificarEnDisco(int pos);
 
         void toString();
+        void toStringShort();
         void toStringExtendido();
 
 

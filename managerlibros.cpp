@@ -173,6 +173,20 @@ bool ManagerLibros::buscarId(int id)
     return false;
 }
 
+int ManagerLibros::getPosLibro(int id)
+{
+    Libro aux;
+    int pos = 0;
+    while(aux.leerDeDisco(pos)){
+        if(aux.getId() == id){
+            return pos;
+        }
+        pos++;
+    }
+
+    return -1;
+}
+
 Libro ManagerLibros::getLibro(int id)
 {
     Libro aux;
@@ -248,4 +262,13 @@ void ManagerLibros::filtrarPorGenero(int idGenero)
     }
     if(!encontrado) std::cout << "No se encontraron libros con ese genero" << std::endl;
     system("pause");
+}
+
+void ManagerLibros::reset()
+{
+    delete[] libros;
+    capacidad = 1;
+    cantidad = 0;
+    libros = new Libro[capacidad];
+    cargarLibros();
 }

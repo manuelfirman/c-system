@@ -15,6 +15,7 @@ class ManagerLibros
         ManagerLibros();
         virtual ~ManagerLibros();
 
+        void reset();
         void cargarLibros();
         void listarLibros();
         void listarLibrosVenta();
@@ -22,6 +23,7 @@ class ManagerLibros
         void agregarLibro(const Libro& libro);
         void setEstadoLibro(int id, bool estado);
         Libro getLibro(int id);
+        int getPosLibro(int id);
         void filtrarPorNombre(const char* nombre);
         void filtrarPorPrecio(int precioMin, int precioMax);
         void filtrarPorGenero(int idGenero);

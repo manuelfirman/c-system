@@ -700,14 +700,15 @@ void Menu::menuCompra()
                 std::cin >> id;
                 std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 libro = mgLibros.getLibro(id);
+                system("cls");
                 if(libro.getId() == -1){
                     std::cout << "Error: ID Incorrecto. Intente con uno de los Id's listados" << std::endl;
                     system("pause");
                     break;
                 }
-                std::cout << libro.getTitulo();
+
                 carrito.agregarLibro(libro);
-                std::cout << "Libro agregado" << std::endl;
+                std::cout << "Libro agregado: " << libro.getTitulo() << std::endl;
                 system("pause");
                 break;
             case 2:
@@ -785,10 +786,10 @@ void Menu::finalizarCompra(int idCliente, int idVendedor)
     std::cout << std::string(20, ' ') << "INFORME DE VENTA" << std::endl;
     std::cout << "=====================================================" << std::endl;
 
-    std::cout << "ID\tTITULO\t\t\tSTOCK\t\tPRECIO" << std::endl;
+    std::cout << "ID\tPRECIO\tTITULO" << std::endl;
     for(int i=0; i < carrito.obtenerCantidad(); i++){
         Libro libro = carrito.obtenerLibro(i);
-        libro.toString();
+        libro.toStringShort();
         total += libro.getPrecio();
     }
     Vendedor vendedor = mgVendedores.obtenerVendedor(idVendedor);
@@ -796,9 +797,10 @@ void Menu::finalizarCompra(int idCliente, int idVendedor)
     Libro libro = carrito.obtenerLibro(0);
 
     std::cout << std::endl << std::endl;
+    std::cout << std::endl << std::endl;
     std::cout << "VENDEDOR: " << vendedor.getNombres() << std::endl;
     std::cout << "CLIENTE: " << cliente.getNombres() << std::endl;
-    std::cout << "TOTAL: $" << total << std::endl;
+    std::cout << "TOTAL: $" << total << std::endl << std::endl;
 
     DetalleVenta detalleVenta;
 
@@ -808,12 +810,17 @@ void Menu::finalizarCompra(int idCliente, int idVendedor)
     detalleVenta.setNombreVendedor(vendedor.getNombres());
     detalleVenta.setPrecioTotal(total);
 
+    int pos = mgLibros.getPosLibro(libro.getId());
+    libro.setStock(libro.getStock()-1);
+    libro.modificarEnDisco(pos);
+
     if(!detalleVenta.grabarEnDisco()) std::cout << "Error. No se pudo generar la compra." << std::endl;
 
     std::cout << "COMPRA REALIZADA" << std::endl;
     std::cout << "INFORME GUARDADO" << std::endl;
     mgVentas.agregarVenta(detalleVenta);
     carrito.resetCarrito();
+    mgLibros.reset();
     system("pause");
 }
 

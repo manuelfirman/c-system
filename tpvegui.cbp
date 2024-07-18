@@ -34,17 +34,33 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="carrito.cpp" />
+		<Unit filename="carrito.h" />
+		<Unit filename="cliente.cpp" />
+		<Unit filename="cliente.h" />
+		<Unit filename="detalleventa.cpp" />
+		<Unit filename="detalleventa.h" />
 		<Unit filename="fecha.cpp" />
 		<Unit filename="fecha.h" />
+		<Unit filename="libro.cpp" />
+		<Unit filename="libro.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="managerclientes.cpp" />
+		<Unit filename="managerclientes.h" />
+		<Unit filename="managerlibros.cpp" />
+		<Unit filename="managerlibros.h" />
 		<Unit filename="managervendedores.cpp" />
 		<Unit filename="managervendedores.h" />
+		<Unit filename="managerventas.cpp" />
+		<Unit filename="managerventas.h" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />
 		<Unit filename="persona.cpp" />
 		<Unit filename="persona.h" />
 		<Unit filename="vendedor.cpp" />
 		<Unit filename="vendedor.h" />
+		<Unit filename="venta.cpp" />
+		<Unit filename="venta.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

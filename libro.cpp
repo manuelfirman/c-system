@@ -147,6 +147,11 @@ bool Libro::modificarEnDisco(int pos)
     return true;
 }
 
+void Libro::toStringShort()
+{
+    std::cout << _id << "\t" << _precio << "\t" << _titulo << std::endl;
+}
+
 void Libro::toString()
 {
     std::cout << _id << "\t" << _stock << "\t" << _precio << "\t" << _titulo << std::endl;

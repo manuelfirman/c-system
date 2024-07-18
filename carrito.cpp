@@ -44,7 +44,7 @@ bool Carrito::eliminarLibro(int indice)
 void Carrito::listarItems()
 {
     std::cout << "====== CARRITO =======" << std::endl;
-    std::cout << "ITEM\tID\t\tTITULO\t\tSTOCK\tPRECIO" << std::endl;
+    std::cout << "ITEM\tID\tSTOCK\tPRECIO\tTITULO" << std::endl;
     for(int i=0; i < cantidad; i++){
         std::cout << i+1 << "\t"; libros[i].toString();
     }
